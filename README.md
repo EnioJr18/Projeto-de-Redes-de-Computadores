@@ -16,20 +16,26 @@ A turma utiliza o bloco principal 192.168.26.0/24. Seguindo a divisão de sub-re
 ### Tabela 2.1 
 Endereçamento IP, Nomenclatura e Domínio (FQDN) <br>
 O domínio base adotado para o grupo é grupo5.bsi-26-1.maceio.lab. <br>
+<img width="590" height="260" alt="Captura de tela 2026-06-05 215504" src="https://github.com/user-attachments/assets/c4ab715b-8546-4262-9f00-d3e3148c1c6e" />
 
 
 
-### Tabela 2.2
+### Tabela/Lista 2.2
 Configuração de Hardware das Máquinas VirtuaisTodas as 8 instâncias foram provisionadas de forma homogênea utilizando o sistema operacional Ubuntu Server. <br>
-_______________________________________________________________________________________________________________________ <br>
-| Instância    | Sistema Operacional   | Memória RAM      | Processadores (Cores)      | Espaço em Disco              | <br>
-| MV1 a MV8    | Ubuntu Server         | 1024 MB (1 GB)   | 1vCPU                      | 20 GB (Dinamicamente Alocado)| <br>
+
+* Instância: MV1 a MV8 <br>
+* Sistema Operacional: Ubuntu Server <br>
+* Memória RAM: 1024 MB (1 GB) <br>
+* Processadores (Cores): 1vCPU <br>
+* Espaço em Disco: 20 GB (Dinamicamente Alocado) <br>
 
 
 ## 3. Tutorial: Criação da Máquina Virtual (VirtualBox)
 Para garantir a padronização do ambiente, todas as 8 máquinas virtuais devem ser criadas seguindo o processo detalhado abaixo, utilizando o Oracle VM VirtualBox.
 
 ### Passo 1: Nome da Máquina Virtual e Sistema Operacional
+<img width="690" height="460" alt="WhatsApp Image 2026-05-26 at 21 05 33" src="https://github.com/user-attachments/assets/be1c90d1-1f70-433c-81a2-d8406bf06f43" />
+
 * Abra o VirtualBox e clique em "Novo".
 * VM Name: Defina o nome da máquina (no exemplo da imagem, ubuntu_server9, mas lembre-se de seguir o padrão da Tabela 2.1, como servidor1, servidor2, etc.).
 * Folder: Escolha o diretório onde os arquivos da VM serão salvos.
@@ -37,18 +43,24 @@ Para garantir a padronização do ambiente, todas as 8 máquinas virtuais devem 
 * O VirtualBox detectará automaticamente que se trata de uma distribuição Linux Ubuntu (64-bit).
 
 ### Passo 2: Configuração de Instalação Desassistida (Unattended Install)
+<img width="690" height="460" alt="WhatsApp Image 2026-05-26 at 21 05 32 (1)" src="https://github.com/user-attachments/assets/512b1a5b-d558-41c3-ae83-188a9b4c9a98" />
+
 * Nesta etapa, o VirtualBox permite pré-configurar os dados de acesso para adiantar a instalação do SO.
 * User Name: Defina o usuário inicial (no exemplo está vboxuser, mas posteriormente criaremos os usuários com os nomes dos integrantes do grupo e o admin.grupo5).
 * Senha: Insira e confirme uma senha padrão para a máquina.
 * Host Name: Defina o nome do host (no exemplo está ubuntu_server9).
 
 ### Passo 3: Especificação de Hardware Virtual (Memória e Processador)
+<img width="690" height="460" alt="WhatsApp Image 2026-05-26 at 21 05 32" src="https://github.com/user-attachments/assets/531a416f-7379-4c9a-bb02-bfcc4cf54497" />
+
 * Na aba de hardware, aloque os recursos que a máquina poderá utilizar do host físico.
 * Base Memory (Memória RAM): Arraste a barra ou digite 512 MB.
 * Processors (CPUs): Mantenha em 1 CPU.
 * Deixe a opção "Use EFI" desmarcada.
 
 ### Passo 4: Especificação do Disco Rígido Virtual
+<img width="690" height="460" alt="WhatsApp Image 2026-05-26 at 21 05 31" src="https://github.com/user-attachments/assets/a36cf605-b1b1-49fa-a312-86fceab7b7f1" />
+
 * Selecione a opção "Create a New Virtual Hard Disk".
 * Disk Size: Defina o tamanho do disco para 32,00 GB.
 * Hard Disk File Type and Format: Escolha o formato VDI (VirtualBox Disk Image) e marque a caixa "Pré-alocar Tamanho Total" para garantir que o espaço de 32 GB seja reservado imediatamente no disco físico, melhorando o desempenho da VM.
@@ -127,10 +139,10 @@ sudo adduser admin.grupo5
 sudo usermod -aG sudo admin.grupo5
 
 # Criação das contas dos integrantes do grupo
-sudo adduser david.nome
-sudo adduser enio.junior
-sudo adduser entony.nome
-sudo adduser igor.nome
+sudo adduser david_gabriel
+sudo adduser enio_eduardo
+sudo adduser entony_richard
+sudo adduser igor_matheus
 ```
 
 ## 5. Plano de Testes e Validação (Etapa 2 - Apresentação)
@@ -138,10 +150,18 @@ Para a entrega final, este espaço será preenchido com as capturas de tela e sa
 
 ### 5.1 Testes de Conectividade ICMP (Ping)
 Exemplo de rotina a ser executada partindo do servidor1 em direção aos demais aliases:
+<img width="590" height="360" alt="WhatsApp Image 2026-05-27 at 19 08 43" src="https://github.com/user-attachments/assets/dc7e4b57-78e2-4000-9596-eb94d42c0bad" />
 
-(Inserir aqui os prints dos resultados de ping bem-sucedidos)
+
 
 ### 5.2 Testes de Acesso Remoto (SSH)
 Validação de autenticação cruzada utilizando os usuários criados:
+<img width="690" height="490" alt="WhatsApp Image 2026-05-27 at 19 52 03" src="https://github.com/user-attachments/assets/cc416188-1b82-4c24-9c20-ccaba9a8ced5" />
 
-(Inserir aqui os prints demonstrando o acesso SSH ativo entre os nós)
+
+### 5.3 Testes Traceroute
+<img width="690" height="490" alt="WhatsApp Image 2026-05-27 at 19 57 31" src="https://github.com/user-attachments/assets/4dbe61a4-47b2-4948-9b63-958f0892f328" />
+
+
+### 5.3 Validação forense de conectividade concorrente e resolução de nomes entre as instâncias do Grupo 5
+<img width="690" height="490" alt="WhatsApp Image 2026-05-27 at 20 12 56" src="https://github.com/user-attachments/assets/ee7813ab-d4f3-4320-bb03-b2758547d5e8" />
