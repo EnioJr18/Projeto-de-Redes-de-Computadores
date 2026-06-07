@@ -25,7 +25,7 @@ Configuração de Hardware das Máquinas VirtuaisTodas as 8 instâncias foram pr
 
 * Instância: MV1 a MV8 <br>
 * Sistema Operacional: Ubuntu Server <br>
-* Memória RAM: 1024 MB (1 GB) <br>
+* Memória RAM: 512 MB <br>
 * Processadores (Cores): 1vCPU <br>
 * Espaço em Disco: 20 GB (Dinamicamente Alocado) <br>
 
