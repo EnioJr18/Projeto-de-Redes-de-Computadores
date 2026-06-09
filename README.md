@@ -37,7 +37,7 @@ Para garantir a padronização do ambiente, todas as 8 máquinas virtuais devem 
 <img width="690" height="460" alt="WhatsApp Image 2026-05-26 at 21 05 33" src="https://github.com/user-attachments/assets/be1c90d1-1f70-433c-81a2-d8406bf06f43" />
 
 * Abra o VirtualBox e clique em "Novo".
-* VM Name: Defina o nome da máquina (no exemplo da imagem, ubuntu_server9, mas lembre-se de seguir o padrão da Tabela 2.1, como servidor1, servidor2, etc.).
+* VM Name: Defina o nome da máquina (no exemplo da imagem, ubuntu_server9, mas lembre-se de seguir o padrão da Tabela 2.1, como Cliente1, Cliente2, etc.).
 * Folder: Escolha o diretório onde os arquivos da VM serão salvos.
 * ISO Image: Selecione a imagem ISO do sistema operacional (utilizamos a versão resolute-live-server-amd64.iso do Ubuntu).
 * O VirtualBox detectará automaticamente que se trata de uma distribuição Linux Ubuntu (64-bit).
@@ -73,7 +73,7 @@ Este guia prático descreve os procedimentos realizados em cada uma das 8 máqui
 Alteração do Hostname do Sistema
 Em cada máquina virtual, execute o comando abaixo para definir o respectivo nome único:
 ```bash
-sudo hostnamectl set-hostname servidor1
+sudo hostnamectl set-hostname cliente1
 ```
 
 Para validar a alteração, utilize:
@@ -87,22 +87,17 @@ No Ubuntu Server, a configuração de rede é gerenciada pelo Netplan. Acesse o 
 ```bash
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
-Insira a estrutura estática correspondente à interface de rede (exemplo para o Servidor 1):
+Insira a estrutura estática correspondente à interface de rede (exemplo para o Cliente1):
 
 ```
 network:
   version: 2
   renderer: networkd
   ethernets:
-    enp0s3: # Verifique o nome correto da interface usando 'ip a'
+    enp0s3:
       dhcp4: no
       addresses:
         - 192.168.26.65/28
-      routes:
-        - to: default
-          via: 192.168.26.64 # Ajustar conforme o gateway da infraestrutura de laboratório
-      nameservers:
-        addresses: [8.8.8.8, 1.1.1.1]
 ```
 
 Aplique as novas diretivas de rede:
@@ -120,14 +115,14 @@ sudo nano /etc/hosts
 Adicione o seguinte bloco idêntico no final do arquivo de cada máquina:
 ```
 # Mapeamento do Grupo 5 - bsi-26-1
-192.168.26.65  servidor1.grupo5.bsi-26-1.maceio.lab  servidor1  s1
-192.168.26.66  servidor2.grupo5.bsi-26-1.maceio.lab  servidor2  s2
-192.168.26.67  servidor3.grupo5.bsi-26-1.maceio.lab  servidor3  s3
-192.168.26.68  servidor4.grupo5.bsi-26-1.maceio.lab  servidor4  s4
-192.168.26.69  servidor5.grupo5.bsi-26-1.maceio.lab  servidor5  s5
-192.168.26.70  servidor6.grupo5.bsi-26-1.maceio.lab  servidor6  s6
-192.168.26.71  servidor7.grupo5.bsi-26-1.maceio.lab  servidor7  s7
-192.168.26.72  servidor8.grupo5.bsi-26-1.maceio.lab  servidor8  s8
+192.168.26.65 cliente1.grupo5.bsi-26-1.maceio.lab cliente1
+192.168.26.66 cliente2.grupo5.bsi-26-1.maceio.lab cliente2
+192.168.26.67 cliente3.grupo5.bsi-26-1.maceio.lab cliente3
+192.168.26.68 cliente4.grupo5.bsi-26-1.maceio.lab cliente4
+192.168.26.69 cliente5.grupo5.bsi-26-1.maceio.lab cliente5
+192.168.26.70 cliente6.grupo5.bsi-26-1.maceio.lab cliente6
+192.168.26.71 cliente7.grupo5.bsi-26-1.maceio.lab cliente7
+192.168.26.72 cliente8.grupo5.bsi-26-1.maceio.lab cliente8
 ```
 
 ### Passo 4.4: Gerenciamento de Usuários do Grupo
@@ -149,7 +144,7 @@ sudo adduser igor_matheus
 Para a entrega final, este espaço será preenchido com as capturas de tela e saídas de terminal coletadas pelo grupo.
 
 ### 5.1 Testes de Conectividade ICMP (Ping)
-Exemplo de rotina a ser executada partindo do servidor1 em direção aos demais aliases:
+Exemplo de rotina a ser executada partindo do Cliente1 em direção aos demais aliases:
 <img width="590" height="360" alt="WhatsApp Image 2026-05-27 at 19 08 43" src="https://github.com/user-attachments/assets/dc7e4b57-78e2-4000-9596-eb94d42c0bad" />
 
 
