@@ -14,15 +14,15 @@ A turma utiliza o bloco principal 192.168.26.0/24. Seguindo a divisão de sub-re
 **Último IP Útil:** 192.168.26.78 <br>
 **Endereço de Broadcast:** 192.168.26.79 <br>
 
-## 2. Tabelas de Definições (Etapa 1 - Item A)
-### Tabela 2.1 
+## 2. Tabelas e Arquitetura de Hardware (Etapa 1 - Item A)
+### Tabela
 Endereçamento IP, Nomenclatura e Domínio (FQDN) <br>
 O domínio base adotado para o grupo é grupo5.bsi-26-1.maceio.lab. <br>
 <img width="590" height="260" alt="Captura de tela 2026-06-05 215504" src="https://github.com/user-attachments/assets/c4ab715b-8546-4262-9f00-d3e3148c1c6e" />
 
 
 
-### Tabela/Lista 2.2
+### Arquitewtura de Hardware
 Configuração de Hardware das Máquinas VirtuaisTodas as 8 instâncias foram provisionadas de forma homogênea utilizando o sistema operacional Ubuntu Server. <br>
 
 * Instância: MV1 a MV8 <br>
